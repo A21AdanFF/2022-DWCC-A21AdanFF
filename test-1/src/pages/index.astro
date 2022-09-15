@@ -1,0 +1,9 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Codes from "../components/Codes.astro"
+const codes = await fetch("cpanel.digicard.pt/api/codes.php")
+---
+
+<Layout>
+	<Codes codes={codes}/>
+</Layout>
