@@ -1,9 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro"
-import Codes from "../components/Codes.astro"
-const codes = await fetch("cpanel.digicard.pt/api/codes.php")
+import Codes from "../components/Codes.jsx"
+const response = await fetch("https://cpanel.digicard.pt/api/codes.php")
+const codes = await response.json()
 ---
-
 <Layout>
 	<Codes codes={codes}/>
 </Layout>
