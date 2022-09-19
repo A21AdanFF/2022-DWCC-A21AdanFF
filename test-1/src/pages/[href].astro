@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { pages } from "../lib/pages";
+export const getStaticPaths = async () => {
+   return pages.map(
+       ({ icon, title, href }) =>
+           [
+               {
+                   params: { href },
+                   props: { icon, title },
+               },
+           ][0]
+   );
+};
+const { title } = Astro.props;
+const {href} = Astro.params;
+
+---
+<Layout selected={href}>
+    {title}
+</Layout>
