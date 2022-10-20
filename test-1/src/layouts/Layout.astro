@@ -1,39 +1,35 @@
 ---
 import Fa from "svelte-fa/src/fa.svelte";
-import {pages} from "../lib/pages";
+import { pages } from "../lib/pages";
 
-const {href} = Astro.props;
+const { href } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body class="w-screen">
-        <main class="w-full">
-            <nav class="flex justify-center w-full bg-neutral-100">
-                {
-                    pages.map((page) => (
-                        <a
-                            href={page.href}
-                            class={`bg-neutral-200 flex justify-center py-2 px-4 ${href==page.href?"border-b-4":""} border-b-slate-100`}
-                        >
-                            <span>
-                                {page.icon ? (
-                                    <Fa icon={page.icon} />
-                                ) : (
-                                    page.title
-                                )}
-                            </span>
-                        </a>
-                    ))
-                }
-            </nav>
-            <slot/>
-        </main>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body class="w-screen">
+    <main class="w-full">
+      <nav class="flex justify-center w-full bg-neutral-100">
+        {
+          pages.map((page) => (
+            <a
+              href={page.href}
+              class={`bg-neutral-200 flex justify-center items-center py-2 px-4 ${
+                href == page.href ? "border-b-4" : ""
+              } border-b-slate-100`}
+            >
+              {page.icon ? <Fa icon={page.icon} /> : <span>{page.title}</span>}
+            </a>
+          ))
+        }
+      </nav>
+      <slot />
+    </main>
+  </body>
 </html>

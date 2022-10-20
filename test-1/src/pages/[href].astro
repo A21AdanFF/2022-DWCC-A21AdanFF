@@ -16,6 +16,6 @@ const { title } = Astro.props;
 const {href} = Astro.params;
 
 ---
-<Layout selected={href}>
+<Layout {href}>
     {title}
 </Layout>
